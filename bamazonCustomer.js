@@ -34,14 +34,26 @@ function shopBamazon(){
     {
       name: "id_info",
       type: "input",
-      message: "What product would you like to buy? (set by item ID)"
-    },
+      message: "What's the ID of the product you'd like to buy?",
+      // validate: function(value){
+      //       if(isNan(value)===false){
+      //         return true;
+      //       }
+      //         return false;
+      //     }
+      },
     {
-
-    },
-    {
-
-    }
-    ]);
-
-}
+      name: "quantity",
+      type: "input",
+      message: "How many would you like to buy?",
+      // validate: function(value){
+      //       if(isNan(value)===false){
+      //         return true;
+      //       } 
+      //         return false;
+      //     }
+      }
+    ]).then(function(response){
+        var query = "SELECT stock_quantity FROM products WHERE item_id= response.id_info";
+      });
+  }
