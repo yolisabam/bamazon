@@ -4,6 +4,10 @@ CREATE DATABASE Bamazon_DB;
 
 USE Bamazon_DB;
 
+DROP TABLE IF EXISTS products;
+
+
+
 CREATE TABLE products(
 item_id INT AUTO_INCREMENT,
 product_name VARCHAR(100) NOT NULL,
@@ -41,4 +45,4 @@ INSERT INTO products(product_name, department_name, price, stock_quantity)
 VALUES ("Think & Grow Rich", "Books", 24.95, 100);
 
 INSERT INTO products(product_name, department_name, price, stock_quantity)
-VALUES ("Pink Beanie", "Clothing Accessories", 13.95, 100);
+VALUES ("Pink Beanie", "Clothing/Accessories", 13.95, 100);
