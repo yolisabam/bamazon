@@ -55,10 +55,12 @@ function shopBamazon(){
       }
     ]).then(function(response){
         var productID = response.id_info;
-        // var query = "SELECT * FROM products WHERE ?";
-        connection.query("SELECT * FROM products WHERE ?", {id:productID}, function(err, res){
-          console.log(res);
-
+        var quantityOrdered = response.quantity;
+        connection.query("SELECT stock_quantity FROM products WHERE ?", {id:productID}, function(err, res){
+           if(quantityOrdered > res[0].stock_quantity){
+            return console.log("Insufficient Quantity");
+           } // console.log(res[0].stock_quantity);
+            console.log("ok we can do this");
         });
       });
   }
