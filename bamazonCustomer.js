@@ -59,6 +59,7 @@ function shopBamazon(){
         connection.query("SELECT stock_quantity FROM products WHERE ?", {id:productID}, function(err, res){
            if(quantityOrdered > res[0].stock_quantity){
             return console.log("Insufficient Quantity");
+            // shopBamazon();
            } // console.log(res[0].stock_quantity);
             console.log("ok we can do this");
         });
