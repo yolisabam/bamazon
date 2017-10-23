@@ -22,7 +22,7 @@ function displayInventory() {
     console.log(response);
     for(var i=0; i<response.length; i++){
       console.log("******************************");
-      console.log(response[i].item_id + "|" + response[i].product_name + "|" + response[i].department_name + "|" + response[i].price + "|" + response[i].stock_quantity);
+      console.log(response[i].id + "|" + response[i].product_name + "|" + response[i].department_name + "|" + response[i].price + "|" + response[i].stock_quantity);
     }
     shopBamazon();
 
@@ -54,6 +54,11 @@ function shopBamazon(){
       //     }
       }
     ]).then(function(response){
-        var query = "SELECT stock_quantity FROM products WHERE item_id= response.id_info";
+        var productID = response.id_info;
+        // var query = "SELECT * FROM products WHERE ?";
+        connection.query("SELECT * FROM products WHERE ?", {id:productID}, function(err, res){
+          console.log(res);
+
+        });
       });
   }
