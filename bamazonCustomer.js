@@ -43,8 +43,7 @@ function shopBamazon(){
           }
       }
     ]).then(function(response){
-        updateInventory(response);
-          
+        updateInventory(response);        
         });
       };
 // *******************************************************************************************************+
